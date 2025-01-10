@@ -1,4 +1,4 @@
-package com.rebellion.bhaktigallery.entity;
+package com.rebellion.adhyatm.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;

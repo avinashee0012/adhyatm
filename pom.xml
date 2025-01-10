@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.rebellion</groupId>
-	<artifactId>bhaktigallery</artifactId>
+	<artifactId>adhyatm</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>bhaktigallery</name>
-	<description>Bhakti Gallery for Wallpapers and Bhajan lyrics</description>
+	<name>adhyatm</name>
+	<description>Adhyatm: Gallery for Wallpapers and Bhajan lyrics</description>
 	<url/>
 	<licenses>
 		<license/>

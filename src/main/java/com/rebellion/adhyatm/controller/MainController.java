@@ -1,11 +1,12 @@
-package com.rebellion.bhaktigallery.controller;
-
-import com.rebellion.bhaktigallery.service.LyricsService;
-import com.rebellion.bhaktigallery.service.WallpapersService;
+package com.rebellion.adhyatm.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.rebellion.adhyatm.service.LyricsService;
+import com.rebellion.adhyatm.service.WallpapersService;
+
 import org.springframework.web.bind.annotation.GetMapping;
 
 

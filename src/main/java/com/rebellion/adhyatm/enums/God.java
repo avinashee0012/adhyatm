@@ -1,4 +1,4 @@
-package com.rebellion.bhaktigallery.enums;
+package com.rebellion.adhyatm.enums;
 
 public enum God {
     KRISHNA,

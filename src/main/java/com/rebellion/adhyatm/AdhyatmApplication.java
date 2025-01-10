@@ -1,4 +1,4 @@
-package com.rebellion.bhaktigallery;
+package com.rebellion.adhyatm;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

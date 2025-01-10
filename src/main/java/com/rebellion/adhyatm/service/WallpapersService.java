@@ -1,8 +1,8 @@
-package com.rebellion.bhaktigallery.service;
-import com.rebellion.bhaktigallery.entity.WallpapersEntity;
-import com.rebellion.bhaktigallery.repository.WallpapersRepo;
-
+package com.rebellion.adhyatm.service;
 import org.springframework.stereotype.Service;
+
+import com.rebellion.adhyatm.entity.WallpapersEntity;
+import com.rebellion.adhyatm.repository.WallpapersRepo;
 
 import java.util.List;
 import java.util.NoSuchElementException;

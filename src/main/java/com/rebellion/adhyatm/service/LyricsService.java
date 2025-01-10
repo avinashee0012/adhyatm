@@ -1,8 +1,9 @@
-package com.rebellion.bhaktigallery.service;
+package com.rebellion.adhyatm.service;
 
-import com.rebellion.bhaktigallery.entity.LyricsEntity;
-import com.rebellion.bhaktigallery.repository.LyricsRepo;
 import org.springframework.stereotype.Service;
+
+import com.rebellion.adhyatm.entity.LyricsEntity;
+import com.rebellion.adhyatm.repository.LyricsRepo;
 
 import java.util.List;
 import java.util.NoSuchElementException;
