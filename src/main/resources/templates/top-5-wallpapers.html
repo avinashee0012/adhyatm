@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Adhyatm</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="/styles.css">
+    <meta name="description" content="Explore a divine collection of devotional lyrics and wallpapers designed to inspire and uplift your spirit. Discover spiritual songs, chants, and prayers from various traditions, accompanied by high-quality wallpapers that reflect the beauty and essence of devotion. Perfect for creating a serene and spiritual ambiance.">
+    <meta name="keywords" content="devotional lyrics, spiritual wallpapers, devotional songs, prayer lyrics, chants, bhajans, religious wallpapers, meditation music, spiritual art, divine wallpapers, hymns, sacred songs, mantra lyrics, serene backgrounds, worship resources, bhakti geet, adhyatmik wallpaper, bhajan, prarthana ke bol, mantra, dharmik wallpaper, dhyan sangeet, pooja samagri, pavitra geet, aarti, bhakti kala, dharmik prishthabhoomi, mantra bol, bhakti sangeet, shaantipurn wallpaper"></head>
+
+<body>
+    <div th:replace="~{fragments/header :: header}">...</div>
+
+    <main class="container-fluid py-1">
+
+        <div class="container w-100 p-2">
+            <table class="table min-vh-100">
+                <div th:replace="~{fragments/leaderboard :: leaderboard}">...</div>
+                <h6 class="text-center bg-secondary text-white py-2 text-uppercase">WALLPAPERS LIST</h6>
+                <tr>
+                    <td class="w-75 bg-light">
+                        <ul class="small list-unstyled" th:each="wallpapers: ${allwallpapers}">
+                            <li><a th:href="@{/wallpapers/{id}(id=${wallpapers.id},width=1536,height=864)}" class="text-decoration-none" th:text="${wallpapers.wallpaper}"></a></li>
+                        </ul>
+                    </td>
+                    <td class="w-25"><div th:replace="~{fragments/rsidead :: rsidead}">...</div></td>
+                </tr>
+            </table>
+            <div th:replace="~{fragments/leaderboard :: leaderboard}">...</div>
+        </div>
+
+    </main>
+
+    <div th:replace="~{fragments/footer :: footer}">...</div>
+</body>
+
+</html>

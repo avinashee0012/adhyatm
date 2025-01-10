@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Adhyatm</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="/styles.css">
+    <meta name="description"
+        content="Explore a divine collection of devotional lyrics and wallpapers designed to inspire and uplift your spirit. Discover spiritual songs, chants, and prayers from various traditions, accompanied by high-quality wallpapers that reflect the beauty and essence of devotion. Perfect for creating a serene and spiritual ambiance.">
+    <meta name="keywords"
+        content="devotional lyrics, spiritual wallpapers, devotional songs, prayer lyrics, chants, bhajans, religious wallpapers, meditation music, spiritual art, divine wallpapers, hymns, sacred songs, mantra lyrics, serene backgrounds, worship resources, bhakti geet, adhyatmik wallpaper, bhajan, prarthana ke bol, mantra, dharmik wallpaper, dhyan sangeet, pooja samagri, pavitra geet, aarti, bhakti kala, dharmik prishthabhoomi, mantra bol, bhakti sangeet, shaantipurn wallpaper">
+</head>
+
+<body>
+    <div th:replace="~{fragments/header :: header}">...</div>
+
+    <main class="container-fluid py-1">
+
+        <div class="container w-100 p-2">
+            <div th:replace="~{fragments/leaderboard :: leaderboard}">...</div>
+            <h6 class="text-uppercase text-center bg-secondary text-white py-2" th:text="${wallpapers.wallpaper}">
+                {{wallpaper name}}</h6>
+            <table class="table min-vh-100">
+                <tr>
+                    <td class="w-75 text-center bg-light">
+                        <div>
+                            <br>
+                            <img th:src="@{/wallpaperfolder/{id}.webp(id=${wallpapers.id})}" id="wallpaper_img"
+                                class="border border-3">
+                                <img th:src="@{/wallpaperfolder/{id}.webp(id=${wallpapers.id})}" id="wallpaper_img_original"
+                                class="border border-3" style="display: none;">
+                        </div>
+                        <button class="btn btn-outline-success my-2 px-5" id="download_button" onclick="downloadWallpaper()">Download
+                            ({{size}})</button>
+                        <div class="text-start mt-4 fw-bold" id="sizes">
+                            <p class="small">Mobile Wallpapers:
+                                <span class="mx-2"><a href="#wallpaper_img" class="link-primary text-decoration-none"
+                                        th:href="@{/wallpapers/{id}(id=${wallpapers.id},width=360,height=800)}">360 x
+                                        800</a></span>
+                                <span class="mx-2"><a href="#wallpaper_img" class="link-primary text-decoration-none"
+                                        th:href="@{/wallpapers/{id}(id=${wallpapers.id},width=390,height=844)}">390 x
+                                        844</a></span>
+                                <span class="mx-2"><a href="#wallpaper_img" class="link-primary text-decoration-none"
+                                        th:href="@{/wallpapers/{id}(id=${wallpapers.id},width=393,height=873)}">393 x
+                                        873</a></span>
+                                <span class="mx-2"><a href="#wallpaper_img" class="link-primary text-decoration-none"
+                                        th:href="@{/wallpapers/{id}(id=${wallpapers.id},width=412,height=915)}">412 x
+                                        915</a></span>
+                                <span class="mx-2"><a href="#wallpaper_img" class="link-primary text-decoration-none"
+                                        th:href="@{/wallpapers/{id}(id=${wallpapers.id},width=414,height=896)}">414 x
+                                        896</a></span>
+                                <span class="mx-2"><a href="#wallpaper_img" class="link-primary text-decoration-none"
+                                        th:href="@{/wallpapers/{id}(id=${wallpapers.id},width=360,height=780)}">360 x
+                                        780</a></span>
+                            </p>
+                            <p class="small">Laptop Wallpapers:
+                                <span class="mx-2"><a href="#wallpaper_img" class="link-primary text-decoration-none"
+                                        th:href="@{/wallpapers/{id}(id=${wallpapers.id},width=1920,height=1080)}">1920 x
+                                        1080</a></span>
+                                <span class="mx-2"><a href="#wallpaper_img" class="link-primary text-decoration-none"
+                                        th:href="@{/wallpapers/{id}(id=${wallpapers.id},width=1366,height=768)}">1366 x
+                                        768</a></span>
+                                <span class="mx-2"><a href="#wallpaper_img" class="link-primary text-decoration-none"
+                                        th:href="@{/wallpapers/{id}(id=${wallpapers.id},width=1536,height=864)}">1536 x
+                                        864</a></span>
+                                <span class="mx-2"><a href="#wallpaper_img" class="link-primary text-decoration-none"
+                                        th:href="@{/wallpapers/{id}(id=${wallpapers.id},width=1280,height=720)}">1280 x
+                                        720</a></span>
+                                <span class="mx-2"><a href="#wallpaper_img" class="link-primary text-decoration-none"
+                                        th:href="@{/wallpapers/{id}(id=${wallpapers.id},width=1440,height=900)}">1440 x
+                                        900</a></span>
+                                <span class="mx-2"><a href="#wallpaper_img" class="link-primary text-decoration-none"
+                                        th:href="@{/wallpapers/{id}(id=${wallpapers.id},width=1600,height=900)}">1600 x
+                                        900</a></span>
+                            </p>
+                            <p class="small">Tablet Wallpapers:
+                                <span class="mx-2"><a href="#wallpaper_img" class="link-primary text-decoration-none"
+                                        th:href="@{/wallpapers/{id}(id=${wallpapers.id},width=768,height=1024)}">768 x
+                                        1024</a></span>
+                                <span class="mx-2"><a href="#wallpaper_img" class="link-primary text-decoration-none"
+                                        th:href="@{/wallpapers/{id}(id=${wallpapers.id},width=810,height=1080)}">810 x
+                                        1080</a></span>
+                                <span class="mx-2"><a href="#wallpaper_img" class="link-primary text-decoration-none"
+                                        th:href="@{/wallpapers/{id}(id=${wallpapers.id},width=820,height=1180)}">820 x
+                                        1180</a></span>
+                                <span class="mx-2"><a href="#wallpaper_img" class="link-primary text-decoration-none"
+                                        th:href="@{/wallpapers/{id}(id=${wallpapers.id},width=1280,height=800)}">1280 x
+                                        800</a></span>
+                                <span class="mx-2"><a href="#wallpaper_img" class="link-primary text-decoration-none"
+                                        th:href="@{/wallpapers/{id}(id=${wallpapers.id},width=800,height=1280)}">800 x
+                                        1280</a></span>
+                                <span class="mx-2"><a href="#wallpaper_img" class="link-primary text-decoration-none"
+                                        th:href="@{/wallpapers/{id}(id=${wallpapers.id},width=601,height=962)}">601 x
+                                        962</a></span>
+                            </p>
+                        </div>
+                        <br>
+                        <div class=" my-1 p-1 bg-warning text-dark text-uppercase">RELATED WALLPAPERS</div>
+                        <div class="container w-100 p-1">
+                            <div class="d-flex flex-row gap-3" id="related_wallpapers"></div>
+                        </div>
+                        <br>
+                        <div class="my-1 p-1 bg-warning text-dark text-uppercase">RELATED LYRICS</div>
+                        <div class="container w-100">
+                            <div class="d-flex flex-column text-start small mt-2" id="related_lyrics"></div>
+                        </div>
+                        <br>
+                    </td>
+                    <td class="w-25">
+                        <div th:replace="~{fragments/rsidead :: rsidead}">...</div>
+                    </td>
+                </tr>
+            </table>
+            <div th:replace="~{fragments/leaderboard :: leaderboard}">...</div>
+        </div>
+
+    </main>
+
+
+    <div th:replace="~{fragments/footer :: footer}">...</div>
+
+    <script th:inline="javascript">
+        document.addEventListener("DOMContentLoaded", () => {
+            const queryString = window.location.search;
+            const urlParams = new URLSearchParams(queryString);
+            const width = urlParams.get("width") || 1920;
+            const height = urlParams.get("height") || 1080;
+
+            const download_button = document.getElementById("download_button");
+            if (download_button) {
+                download_button.innerText = `Download (${width} x ${height})`;
+            }
+
+            const wallpaper_img = document.getElementById("wallpaper_img");
+            if (wallpaper_img) {
+                wallpaper_img.style.height = `${height / 2}px`;
+                wallpaper_img.style.width = `${width / 2}px`;
+            }
+
+            const related_wallpapers = document.getElementById("related_wallpapers");
+            const relatedwallpapers = /*[[${wallpapers.relatedwallpapers}]]*/ 'null';
+            if (relatedwallpapers !== 'null' && related_wallpapers) {
+                const relatedwallpapers_array = relatedwallpapers.split(" ");
+                for (const id of relatedwallpapers_array) {
+                    const a = document.createElement("a");
+                    a.href = `/wallpapers/${id}?width=1536&height=864`;
+                    const img = document.createElement("img");
+                    img.src = `/wallpaperfolder/${id}.webp`;
+                    img.style.height = "100px";
+                    img.style.width = "100px";
+                    a.appendChild(img);
+                    related_wallpapers.appendChild(a);
+                }
+            }
+
+            const related_lyrics = document.getElementById("related_lyrics");
+            const relatedlyrics = /*[[${wallpapers.relatedlyrics}]]*/ 'null';
+            if (relatedlyrics !== 'null' && related_lyrics) {
+                const relatedlyrics_array = JSON.parse(relatedlyrics);
+                for (const lyric of relatedlyrics_array) {
+                    const id = Object.keys(lyric)[0];
+                    const title = Object.values(lyric)[0];
+                    const a = document.createElement("a");
+                    a.href = `/lyrics/${id}`;
+                    a.className = "text-decoration-none link-danger text-capitalize";
+                    a.setAttribute("class", "text-decoration-none link-danger text-capitalize my-1");
+                    a.innerText = `${title}`;
+                    related_lyrics.appendChild(a);
+                }
+            }
+        });
+
+        function _downloadWallpaper() {
+            const original_img = document.getElementById("wallpaper_img_original");
+            // const id = /*[[${wallpapers.id}]]*/ 'null'; 
+            // window.open( `/wallpaperfolder/${id}.webp`);
+
+            var sizes = document.getElementById("sizes");
+            var canvas = document.createElement("canvas");
+            canvas.style.height = 1000 + "px";
+            canvas.style.width = 1000 + "px";
+            var ctx = canvas.getContext("2d");
+
+            // img	Specifies the image, canvas, or video element to use	 
+            // sx	Optional. The x coordinate where to start clipping	
+            // sy	Optional. The y coordinate where to start clipping	
+            // swidth	Optional. The width of the clipped image	
+            // sheight	Optional. The height of the clipped image	
+            // x	The x coordinate where to place the image on the canvas	
+            // y	The y coordinate where to place the image on the canvas	
+            // width	Optional. The width of the image to use (stretch or reduce the image)	
+            // height	Optional. The height of the image to use (stretch or reduce the image)
+
+            // context.drawImage(img, sx, sy, swidth, sheight, x, y, width, height)
+
+            // THIS DOESN'T WORK
+            ctx.drawImage(original_img, 300, 0, 1200, 600, 0, 0, 300, 300); 
+            sizes.appendChild(canvas);
+
+            // Use this page to create resize before downloading.
+            // https://imagekit.io/blog/how-to-resize-image-in-javascript/
+            
+        }
+    </script>
+</body>
+
+</html>

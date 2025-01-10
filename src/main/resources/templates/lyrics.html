@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Adhyatm</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="/styles.css">
+    <meta name="description"
+        content="Explore a divine collection of devotional lyrics and wallpapers designed to inspire and uplift your spirit. Discover spiritual songs, chants, and prayers from various traditions, accompanied by high-quality wallpapers that reflect the beauty and essence of devotion. Perfect for creating a serene and spiritual ambiance.">
+    <meta name="keywords"
+        content="devotional lyrics, spiritual wallpapers, devotional songs, prayer lyrics, chants, bhajans, religious wallpapers, meditation music, spiritual art, divine wallpapers, hymns, sacred songs, mantra lyrics, serene backgrounds, worship resources, bhakti geet, adhyatmik wallpaper, bhajan, prarthana ke bol, mantra, dharmik wallpaper, dhyan sangeet, pooja samagri, pavitra geet, aarti, bhakti kala, dharmik prishthabhoomi, mantra bol, bhakti sangeet, shaantipurn wallpaper">
+</head>
+
+<body>
+    <div th:replace="~{fragments/header :: header}">...</div>
+
+    <main class="container-fluid py-1">
+
+        <div class="container w-100 p-2">
+            <div th:replace="~{fragments/leaderboard :: leaderboard}">...</div>
+            <h6 class="text-center bg-secondary text-white py-2 text-uppercase" th:text="${lyrics.song}">{{song
+                name}}</h6>
+            <table class="table min-vh-100">
+                <tr>
+                    <td class="w-75 text-center bg-light">
+                        <div th:utext="${lyrics.content}">{{content}}</div>
+                        <br>
+                        <div class=" mt-1 p-1 bg-warning text-dark text-uppercase">RELATED LYRICS</div>
+                        <div class="container w-100">
+                            <div class="d-flex flex-column text-start small mt-2" id="related_lyrics">
+
+                            </div>
+                        </div>
+                        <br>
+                        <div class=" mt-1 p-1 bg-warning text-dark text-uppercase">RELATED WALLPAPERS</div>
+                        <div class="container w-100 p-1">
+                            <div class="d-flex flex-row gap-3" id="related_wallpapers">
+
+                            </div>
+                        </div>
+                        <br>
+                    </td>
+                    <td class="w-25">
+                        <div th:replace="~{fragments/rsidead :: rsidead}">...</div>
+                    </td>
+                </tr>
+            </table>
+            <div th:replace="~{fragments/leaderboard :: leaderboard}">...</div>
+        </div>
+
+    </main>
+
+
+    <div th:replace="~{fragments/footer :: footer}">...</div>
+
+    <script th:inline="javascript">
+        /*<![CDATA[*/
+        const related_wallpapers = document.getElementById("related_wallpapers");
+        const related_lyrics = document.getElementById("related_lyrics");
+
+        var relatedwallpapers = /*[[${lyrics.relatedwallpapers}]]*/ 'null';
+        var relatedwallpapers_array = relatedwallpapers.split(" ");
+
+        var relatedlyrics = /*[[${lyrics.relatedlyrics}]]*/ 'null';
+        var relatedlyrics_array = JSON.parse(relatedlyrics);
+
+        for (let i = 0; i < relatedwallpapers_array.length; i++) {
+            const id = relatedwallpapers_array[i];
+            const a = document.createElement("a");
+            a.setAttribute("href", `/wallpapers/${id}?width=1536&height=864`);
+            const img = document.createElement("img");
+            img.setAttribute("src", `/wallpaperfolder/${id}.webp`);
+            img.style.height = 100 + "px";
+            img.style.width = 100 + "px";
+            a.appendChild(img);
+            related_wallpapers.appendChild(a);
+        }
+
+        for (let i = 0; i < relatedlyrics_array.length; i++) {
+            const id = Object.keys(relatedlyrics_array[i])[0];
+            const title = Object.values(relatedlyrics_array[i])[0];
+            const a = document.createElement("a");
+            a.setAttribute("href", `/lyrics/${id}`);
+            a.setAttribute("class", "text-decoration-none link-danger text-capitalize my-1");
+            a.innerText = `${title}`;
+            related_lyrics.appendChild(a);
+        }
+        /*]]>*/
+    </script>
+</body>
+
+</html>
