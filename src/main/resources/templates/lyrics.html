@@ -35,7 +35,7 @@
                         <br>
                         <div class=" mt-1 p-1 bg-warning text-dark text-uppercase">RELATED WALLPAPERS</div>
                         <div class="container w-100 p-1">
-                            <div class="d-flex flex-row gap-3" id="related_wallpapers">
+                            <div class="d-flex flex-wrap gap-3 mt-3 justify-content-around" id="related_wallpapers">
 
                             </div>
                         </div>
@@ -51,9 +51,9 @@
 
     </main>
 
-
+    <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
     <div th:replace="~{fragments/footer :: footer}">...</div>
-
+    <script src="/script.js"></script>
     <script th:inline="javascript">
         /*<![CDATA[*/
         const related_wallpapers = document.getElementById("related_wallpapers");
@@ -71,8 +71,8 @@
             a.setAttribute("href", `/wallpapers/${id}?width=1536&height=864`);
             const img = document.createElement("img");
             img.setAttribute("src", `/wallpaperfolder/${id}.webp`);
-            img.style.height = 100 + "px";
-            img.style.width = 100 + "px";
+            img.style.height = 150 + "px";
+            img.style.width = 150 + "px";
             a.appendChild(img);
             related_wallpapers.appendChild(a);
         }

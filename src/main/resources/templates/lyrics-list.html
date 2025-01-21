@@ -20,6 +20,21 @@
                 <h6 class="text-center bg-secondary text-white py-2 text-uppercase">LYRICS LIST</h6>
                 <tr>
                     <td class="w-75 bg-light">
+                        <!-- PLACEHOLDER: YET TO BE IMPLEMENTED -->
+                        <nav aria-label="Page navigation example">
+                            <ul class="pagination justify-content-end">
+                              <li class="page-item disabled">
+                                <a class="page-link">Previous</a>
+                              </li>
+                              <li class="page-item"><a class="page-link" href="#">1</a></li>
+                              <li class="page-item"><a class="page-link" href="#">2</a></li>
+                              <li class="page-item"><a class="page-link" href="#">3</a></li>
+                              <li class="page-item">
+                                <a class="page-link" href="#">Next</a>
+                              </li>
+                            </ul>
+                          </nav>
+                          <!-- PLACEHOLDER: YET TO BE IMPLEMENTED -->
                         <ul class="small list-unstyled" th:each="lyrics: ${alllyrics}">
                             <li><a th:href="@{/lyrics/{id}(id=${lyrics.id})}" class="text-decoration-none link-danger text-capitalize" th:text="${lyrics.song}"></a></li>
                         </ul>
@@ -32,8 +47,9 @@
 
     </main>
 
-    
+    <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
     <div th:replace="~{fragments/footer :: footer}">...</div>
+    <script src="/script.js"></script>
 </body>
 
 </html>

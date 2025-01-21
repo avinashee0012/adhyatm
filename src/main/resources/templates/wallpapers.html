@@ -98,7 +98,7 @@
                         <br>
                         <div class=" my-1 p-1 bg-warning text-dark text-uppercase">RELATED WALLPAPERS</div>
                         <div class="container w-100 p-1">
-                            <div class="d-flex flex-row gap-3" id="related_wallpapers"></div>
+                            <div class="d-flex flex-wrap gap-3 mt-3 justify-content-around" id="related_wallpapers"></div>
                         </div>
                         <br>
                         <div class="my-1 p-1 bg-warning text-dark text-uppercase">RELATED LYRICS</div>
@@ -117,9 +117,9 @@
 
     </main>
 
-
+    <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
     <div th:replace="~{fragments/footer :: footer}">...</div>
-
+    <script src="/script.js"></script>
     <script th:inline="javascript">
         document.addEventListener("DOMContentLoaded", () => {
             const queryString = window.location.search;
@@ -147,8 +147,8 @@
                     a.href = `/wallpapers/${id}?width=1536&height=864`;
                     const img = document.createElement("img");
                     img.src = `/wallpaperfolder/${id}.webp`;
-                    img.style.height = "100px";
-                    img.style.width = "100px";
+                    img.style.height = "150px";
+                    img.style.width = "150px";
                     a.appendChild(img);
                     related_wallpapers.appendChild(a);
                 }

@@ -1,0 +1,12 @@
+Planned Features:
+1. wallpapers-list.html:
+    - Show 30 list-items in 1 container and break container after that.
+    - Show list of Gods with count of list-items in each category.
+
+2. lyrics-list.html:
+    - Show 30 list-items in 1 container and break container after that.
+    - Show list of Gods with count of list-items in each category.
+
+3. "Download wallpaper" feature of different size with counter
+
+4. Code "save wallpapers as BLOB in DB" instead of files

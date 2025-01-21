@@ -1,10 +1,10 @@
-package com.rebellion.bhaktigallery;
+package com.rebellion.adhyatm;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class BhaktigalleryApplicationTests {
+class AdhyatmApplicationTests {
 
 	@Test
 	void contextLoads() {
